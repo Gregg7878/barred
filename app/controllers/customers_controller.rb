@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
-    # before_action :authorize_customer, only: [:update, :destroy,]
-    # skip_before_action :authorize_customer, only: [:index, :create] 
+    before_action :authorize_customer, only: [:update, :destroy,]
+    skip_before_action :authorize_customer, only: [:create] 
 
     def index
         customers = Customer.all 
