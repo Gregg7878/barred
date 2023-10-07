@@ -1,5 +1,5 @@
 class OrganizersController < ApplicationController
-    before_action :authorize_organizer
+    # before_action :authorize_organizer
 
     def index
         organizers = Organizer.all 

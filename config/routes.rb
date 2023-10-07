@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :organizers
   resources :customers
 
-  # post "/signup", to: "organizers#create" 
+  post "/signup", to: "organizers#create" 
   post "/signup", to: "customers#create" 
   get "/me", to: "organizers#show"
   get "/me", to: "customers#show"
