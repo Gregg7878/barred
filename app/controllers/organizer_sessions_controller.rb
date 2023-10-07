@@ -17,19 +17,8 @@ class OrganizerSessionsController < ApplicationController
         end 
     end
 
-    def destroy      
-       if logged_in?
+    def destroy
         session.delete :organizer_id
-        head :no_content 
-       else
-        errors = ['Not logged in']
-        render json: { errors: errors }, status: :unauthorized
-       end
-    end 
-
-    private  
-    def logged_in?
-        #    !session[:user_id].nil?
-           session.include? :organizer_id
-    end 
+        head :no_content
+    end
 end

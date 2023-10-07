@@ -17,18 +17,23 @@ class CustomerSessionsController < ApplicationController
         end 
     end
 
-    def destroy      
-       if logged_in?
+    def destroy
         session.delete :customer_id
-        head :no_content 
-       else
-        errors = ['Not logged in']
-        render json: { errors: errors }, status: :unauthorized
-       end
-    end 
+        head :no_content
+      end
 
-    private 
-    def logged_in?
-           session.include? :customer_id
-    end 
+    # def destroy      
+    #    if logged_in?
+    #     session.delete :customer_id
+    #     head :no_content 
+    #    else
+    #     errors = ['Not logged in']
+    #     render json: { errors: errors }, status: :unauthorized
+    #    end
+    # end 
+
+    # private 
+    # def logged_in?
+    #        session.include? :customer_id
+    # end 
 end
