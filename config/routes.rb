@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   post "/signup", to: "organizers#create" 
   post "/signup", to: "customers#create" 
-  get "/me", to: "organizers#show"
+  get "/meOrg", to: "organizers#show"
   get "/me", to: "customers#show"
   post "login", to:"customer_sessions#create" 
   delete "/logout", to: "customer_sessions#destroy" 
