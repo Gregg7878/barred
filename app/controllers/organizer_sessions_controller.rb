@@ -1,0 +1,2 @@
+class OrganizerSessionsController < ApplicationController
+end
