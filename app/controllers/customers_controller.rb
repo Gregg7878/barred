@@ -1,4 +1,6 @@
 class CustomersController < ApplicationController
+    # before_action :authorize_customer, only: [:update, :destroy]
+    # skip_before_action :authorize_customer, only: [:create] 
 
     def index
         customers = Customer.all 
@@ -16,6 +18,7 @@ class CustomersController < ApplicationController
     
       def create 
         customer = Customer.new(customer_params)
+        
         if customer.save 
           session[:customer_id] = customer.id 
           render json: customer, status: :created 
@@ -43,7 +46,11 @@ class CustomersController < ApplicationController
     
       private 
       def customer_params 
-        params.permit(:first_name, :last_name :email, :age)  
+        params.require(:customer).permit(:first_name, :last_name, :email, :age)  
+      end
+
+      def authorize_customer
+        return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :customer_id
       end
 end
  
