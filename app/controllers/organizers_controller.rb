@@ -1,5 +1,6 @@
 class OrganizersController < ApplicationController
-    # before_action :authorize_organizer
+    before_action :authorize_organizer, only: [:update, :destroy,]
+    skip_before_action :authorize_organizer, only: [:create] 
 
     def index
         organizers = Organizer.all 
