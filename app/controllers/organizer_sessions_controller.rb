@@ -8,11 +8,6 @@ class OrganizerSessionsController < ApplicationController
         
         else
             errors = ["Invalid email or password"]
-            # if organizer.nil?
-            #     errors << 'invalid password'
-            # else 
-            #     errors << 'invalid email'
-            # end
             render json: { errors: errors }, status: :unauthorized 
         end 
     end
