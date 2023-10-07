@@ -27,7 +27,7 @@ class OrganizersController < ApplicationController
       end
     
       def update  
-        organizer = Organizer.find_by(id: params[:organizer_id])
+        organizer = Organizer.find(params[:id])
         
         if organizer.update!(organizer_params)
           session[:organizer_id] = organizer.id 
@@ -38,7 +38,7 @@ class OrganizersController < ApplicationController
       end
     
       def destroy 
-        organizer = Organizer.find_by(id: params[:organizer_id])
+        organizer = Organizer.find(params[:id])
         organizer.delete 
         head :no_content 
       end
@@ -46,7 +46,7 @@ class OrganizersController < ApplicationController
     
       private
       def organizer_params 
-        params.permit(:first_name, :last_name, :email, :age) 
+        params.permit(:first_name, :last_name, :password, :email, :age) 
       end
 
       def authorize_organizer
