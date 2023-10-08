@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :calendar_events, only: [:index, :create, :destroy]
+  resources :tickets, only: [:index, :create, :show, :destroy]
 end
