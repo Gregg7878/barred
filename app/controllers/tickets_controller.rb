@@ -18,7 +18,18 @@ class TicketsController < ApplicationController
         end
     end
 
-    # other CRUD actions
+    # display details of a specific ticket by its ID
+    def show
+        @ticket = Ticket.find(params[:id])
+    end
+
+    # delete a ticket by its ID
+    def destroy
+        @ticket = Ticket.find(params[:id])
+        @ticket.destroy
+        head :no_content
+    end
+
     private
 
     def ticket_params
