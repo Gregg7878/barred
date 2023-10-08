@@ -1,11 +1,13 @@
 class PaymentsController < ApplicationController
     before_action :find_payment, only: [:show, :edit, :update, :destroy]
-  
+    before_action :authenticate_user
+
     def index
       @payments = Payment.all
     end
   
     def show
+
     end
   
     def new

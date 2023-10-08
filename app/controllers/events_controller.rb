@@ -1,11 +1,13 @@
 class EventsController < ApplicationController
-    before_action :set_event, only: [:show, :edit, :update, :destroy]
+    before_action :set_event, only: [:show]
+    before_action :authenticate_user
   
     def index
       @events = Event.all
     end
   
     def show
+      @events = Event.all
     end
   
     def new
@@ -23,6 +25,7 @@ class EventsController < ApplicationController
     end
   
     def edit
+      
     end
   
     def update
