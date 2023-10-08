@@ -6,6 +6,7 @@ class CalendarEventsController < ApplicationController
         @calendar_events = current_user.calendar_events
     end
 
+    # Create a calendar event for the current user
     def create
         @calendar_event = current_user.calendar_events.build(calendar_event_params)
 
@@ -14,6 +15,13 @@ class CalendarEventsController < ApplicationController
         else 
             render json: @calendar_event.errors, status: :unprocessable_entity
         end
+    end
+
+    #delete calendar event by id
+    def destroy
+        @calendar_event = CalendarEvent.find(params[:id])
+        @calendar_event.destroy
+        head :no_content
     end
 
     
