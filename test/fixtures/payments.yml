@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ticket: one
+  amount: 1
+  transaction_id: MyString
+  status: MyString
+  timestamp: 2023-10-04 09:33:05
+
+two:
+  ticket: two
+  amount: 1
+  transaction_id: MyString
+  status: MyString
+  timestamp: 2023-10-04 09:33:05
